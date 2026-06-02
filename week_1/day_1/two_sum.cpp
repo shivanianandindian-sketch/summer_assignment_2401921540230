@@ -1,21 +1,40 @@
 #include <vector>
 #include <unordered_map>
+#include <iostream>
+using namespace std;
 
 class Solution {
-public:
-    std::vector<int> twoSum(std::vector<int>& nums, int target) {
-        std::unordered_map<int, int> num_to_index;
-        
-        for (int i = 0; i < nums.size(); ++i) {
-            int complement = target - nums[i];
-            
-            if (num_to_index.find(complement) != num_to_index.end()) {
-                return {num_to_index[complement], i};
+    public:
+        vector<int> twoSum(vector<int>& nums,int target){
+           unordered_map<int,int> m;
+           vector<int> ans;
+
+           for(int i=0; i<nums.size();i++){
+            int first=nums[i];
+            int sec= target - first;
+
+            if(m.find(sec)!=m.end()){
+                ans.push_back(i);
+                ans.push_back(m[sec]);
+                break;
             }
-            
-            num_to_index[nums[i]] = i;
-        }
-        
-        return {};
-    }
+            m[first]=i;
+           }
+           return ans;
+    }                 
+                    
 };
+int main() {
+    Solution sol;
+    vector<int> nums = {2, 7, 11, 15};
+    int target = 9;
+    vector<int> result = sol.twoSum(nums, target);
+    
+    cout << "Indices: ";
+    for (int index : result) {
+        cout << index << " "; // Output: Indices: 1 0 
+    }
+    cout << endl;
+    
+    return 0;
+}
