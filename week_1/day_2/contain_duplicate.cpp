@@ -1,18 +1,28 @@
 #include <vector>
-#include <unordered_set>
+#include <unordered_map>
+#include <iostream>
+using namespace std;
 
 class Solution {
 public:
-    bool containsDuplicate(std::vector<int>& nums) {
-        std::unordered_set<int> seen;
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_map<int,int> mp;
         
-        for (int num : nums) {
-            if (seen.find(num) != seen.end()) {
+        for(int x: nums){
+            mp[x]++;
+        }
+        for(int x: nums){
+            if(mp[x]>1){
                 return true;
             }
-            seen.insert(num);
         }
         
         return false;
     }
 };
+int main() {
+    Solution sol;
+    vector<int> nums = {1, 2, 3, 1};
+    cout << boolalpha << sol.containsDuplicate(nums) << endl; // Output: true
+    return 0;
+}

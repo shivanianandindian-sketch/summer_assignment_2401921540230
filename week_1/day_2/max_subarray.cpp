@@ -1,17 +1,27 @@
 #include <vector>
 #include <algorithm>
+#include <climits>
+#include <iostream>
 
 class Solution {
 public:
     int maxSubArray(std::vector<int>& nums) {
-        int max_sum = nums[0];
-        int current_sum = nums[0];
+        int curr_sum = 0;
+        int max_sum = INT_MIN;
         
-        for (size_t i = 1; i < nums.size(); ++i) {
-            current_sum = std::max(nums[i], current_sum + nums[i]);
-            max_sum = std::max(max_sum, current_sum);
-        }
-        
+        for (int val: nums){
+            curr_sum += val;
+            max_sum = std::max(max_sum, curr_sum);
+            if (curr_sum < 0) {
+                curr_sum = 0;
+            }
+         }    
         return max_sum;
     }
 };
+int main() {
+    Solution sol;
+    std::vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
+    std::cout << sol.maxSubArray(nums) << std::endl; 
+    return 0;
+}
