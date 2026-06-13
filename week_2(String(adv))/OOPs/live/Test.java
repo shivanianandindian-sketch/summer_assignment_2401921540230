@@ -7,25 +7,20 @@ import music.wind.Saxophone;
 public class Test {
     public static void main(String[] args) {
         
-        // a. Create an instance of Veena and call play() method
-        System.out.println("--- Part A ---");
+        System.out.println("**********case 1: Creating and using Veena instance **********");
         Veena veena = new Veena();
         veena.play();
         
-        // b. Create an instance of Saxophone and call play() method
-        System.out.println("\n--- Part B ---");
+        System.out.println("\n**********case 2: Creating and using Saxophone instance**********");
         Saxophone saxophone = new Saxophone();
         saxophone.play();
         
-        // c. Place the above instances in a variable of type Playable and then call play()
-        System.out.println("\n--- Part C (Polymorphism) ---");
+        System.out.println("\n**********case 3: Using polymorphism**********");
         Playable playableInstrument;
         
-        // Pointing the interface variable to the Veena instance
         playableInstrument = veena;
         playableInstrument.play();
         
-        // Pointing the same interface variable to the Saxophone instance
         playableInstrument = saxophone;
         playableInstrument.play();
     }

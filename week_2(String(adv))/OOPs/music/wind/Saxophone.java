@@ -5,6 +5,6 @@ import music.Playable;
 public class Saxophone implements Playable {
     @Override
     public void play() {
-        System.out.println("Playing the Saxophone: Smooth, soulful wind melodies.");
+        System.out.println("Saxaphone, a popular wind instrument, is being played.");
     }
 }

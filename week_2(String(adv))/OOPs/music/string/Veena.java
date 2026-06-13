@@ -5,6 +5,6 @@ import music.Playable;
 public class Veena implements Playable {
     @Override
     public void play() {
-        System.out.println("Playing the Veena: Rich, traditional string vibrations.");
+        System.out.println("veena , a traditional Indian string instrument, is being played.");
     }
 }
